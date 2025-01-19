@@ -65,10 +65,10 @@ int main()
             break;
 
         case '5':
-            //aciona buzzer durante 1 segundo
+            //aciona buzzer durante 2 segundo
             printf("BUZZER PLAYING\n");
             pwm_set_chan_level(SLICE_GPIO21, CHANNEL_GPIO21, (TOP + 1)/2); //dutty cycle de 50%
-            sleep_ms(1000);
+            sleep_ms(2000);
             pwm_set_chan_level(SLICE_GPIO21, CHANNEL_GPIO21, 0);
             break;  
 
