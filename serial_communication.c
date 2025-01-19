@@ -67,9 +67,9 @@ int main()
         case '5':
             //aciona buzzer durante 1 segundo
             printf("BUZZER PLAYING\n");
-            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, (TOP + 1)/2); //dutty cycle de 50%
+            pwm_set_chan_level(SLICE_GPIO21, CHANNEL_GPIO21, (TOP + 1)/2); //dutty cycle de 50%
             sleep_ms(1000);
-            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, 0);
+            pwm_set_chan_level(SLICE_GPIO21, CHANNEL_GPIO21, 0);
             break;  
 
         case '6':
@@ -107,9 +107,9 @@ void buzzer_init(void){
     //inicializa o pino do buzzer como pwm
     gpio_set_function(BUZZER, GPIO_FUNC_PWM);
     //seta valor máximo de contagem do PWM (TOP)
-    pwm_set_wrap(SLICE_GPIO10, TOP);
+    pwm_set_wrap(SLICE_GPIO21, TOP);
     //seta valor de divisão do clock do PWM
-    pwm_set_clkdiv(SLICE_GPIO10, DIV);
+    pwm_set_clkdiv(SLICE_GPIO21, DIV);
 
     /*
     valor de TOP e DIV previamente calculado para emitir som da nota LÁ 4 (440 Hz): 
@@ -118,9 +118,9 @@ void buzzer_init(void){
     */
 
     //seta valor inicial de dutty cycle como 0
-    pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, 0);
+    pwm_set_chan_level(SLICE_GPIO21, CHANNEL_GPIO21, 0);
     //abilita PWM
-    pwm_set_enabled(SLICE_GPIO10, true);
+    pwm_set_enabled(SLICE_GPIO21, true);
 }
 
 
