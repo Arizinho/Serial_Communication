@@ -65,6 +65,7 @@ int main()
             break;
 
         case '5':
+            //aciona buzzer durante 1 segundo
             printf("BUZZER PLAYING\n");
             pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, (TOP + 1)/2); //dutty cycle de 50%
             sleep_ms(1000);
@@ -72,6 +73,7 @@ int main()
             break;  
 
         case '6':
+            //coloca a placa em modo de armazenamento
             printf("STORAGE MODE ON\n");
             reset_usb_boot(0,0);
             break;   
