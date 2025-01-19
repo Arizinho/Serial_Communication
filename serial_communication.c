@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
+#include "pico/bootrom.h"
 
 #define LED_RED 13
 #define LED_GREEN 11
@@ -31,35 +32,49 @@ int main()
     while (true) {
         //lê tecla pressionada
         tecla = getchar();
-        switch ('1')
+        switch (tecla)
         {
-        case /* constant-expression */:
-            /* code */
+        case '1':
+            //liga a cor vermelha do led rgb
+            liga_led_rgb(1,0,0);
+            printf("RED LED ON\n");
             break;
 
-        switch ('2')
-        {
-        case /* constant-expression */:
-            /* code */
+        case '2':
+            //liga a cor verde do led rgb
+            liga_led_rgb(0,1,0);
+            printf("GREEN LED ON\n");
+            break;
+        
+        case '3':
+            //liga a cor azul do led rgb
+            liga_led_rgb(0,0,1);
+            printf("BLUE LED ON\n");
+            break;
+        
+        case '4':
+            //liga a cor branca do led rgb
+            printf("WHITE LED ON\n");
+            liga_led_rgb(1,1,1);
             break;
 
-        switch ('3')
-        {
-        case /* constant-expression */:
-            /* code */
+        case '0':
+            //desliga o led
+            printf("LED OFF\n");
+            liga_led_rgb(0,0,0);
             break;
 
-        switch ('4')
-        {
-        case /* constant-expression */:
-            /* code */
-            break;
+        case '5':
+            printf("BUZZER PLAYING\n");
+            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, (TOP + 1)/2); //dutty cycle de 50%
+            sleep_ms(1000);
+            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, 0);
+            break;  
 
-        switch ('5')
-        {
-        case /* constant-expression */:
-            /* code */
-            break;
+        case '6':
+            printf("STORAGE MODE ON\n");
+            reset_usb_boot(0,0);
+            break;   
         
         default:
             break;
