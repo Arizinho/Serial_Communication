@@ -18,12 +18,52 @@ void liga_led_rgb(bool red, bool green, bool blue);
 void buzzer_init(void);
 
 int main()
-{
+{   
+    char tecla;
+
+    //inicializa comunicação serial
     stdio_init_all();
 
+    //inicializa os GPIOs do LED RGB e do Buzzer
+    led_rgb_init();
+    buzzer_init();
+
     while (true) {
-        printf("Hello, world!\n");
-        sleep_ms(1000);
+        //lê tecla pressionada
+        tecla = getchar();
+        switch ('1')
+        {
+        case /* constant-expression */:
+            /* code */
+            break;
+
+        switch ('2')
+        {
+        case /* constant-expression */:
+            /* code */
+            break;
+
+        switch ('3')
+        {
+        case /* constant-expression */:
+            /* code */
+            break;
+
+        switch ('4')
+        {
+        case /* constant-expression */:
+            /* code */
+            break;
+
+        switch ('5')
+        {
+        case /* constant-expression */:
+            /* code */
+            break;
+        
+        default:
+            break;
+        }
     }
 }
 
